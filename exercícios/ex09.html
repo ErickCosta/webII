@@ -1,48 +1,48 @@
 <html>
 
-    <head>
+<head>
 
-    </head>
+</head>
 
-    <body>
-        
-<script>
+<body>
 
-function calcular(n1, op, n2){
+    <script>
 
-    if (op == "+"){
-        return n1 + n2;
-    }else if(op == "-") {
-        return n1 - n2;
-    }else if(op == "*"){
-        return n1 * n2;
-    }else if(op == "/"){
-        if (n2 != 0){
-            return (n1 / n2).toFixed(1);
-        } 
-    }
-}
+        function calcular(n1, op, n2) {
 
-var n = 7;
-var som = [];
-var sub = [];
-var mult = [];
-var div = [];
+            if (op == "+") {
+                return n1 + n2;
+            } else if (op == "-") {
+                return n1 - n2;
+            } else if (op == "*") {
+                return n1 * n2;
+            } else if (op == "/") {
+                if (n2 != 0) {
+                    return (n1 / n2).toFixed(1);
+                }
+            }
+        }
 
-for (var index = 1; index <= 10; index++) {
-    som.push (n + "+" + index + "=" + calcular(n, "+", index) + "\n");
-    sub.push (n + "-" + index + "=" + calcular(n, "-", index) + "\n");
-    mult.push (n + "*" + index + "=" + calcular(n, "*", index) + "\n");
-    div.push (n + "/" + index + "=" + calcular(n, "/", index) + "\n");
-}
+        var n = 7;
+        var som = [];
+        var sub = [];
+        var mult = [];
+        var div = [];
 
-console.log(som.toString().replace(/,/g, ""));
-console.log(sub.toString().replace(/,/g, ""));
-console.log(mult.toString().replace(/,/g, ""));
-console.log(div.toString().replace(/,/g, ""));
-            
-</script>
+        for (var index = 1; index <= 10; index++) {
+            som.push(n + "+" + index + "=" + calcular(n, "+", index) + "\n");
+            sub.push(n + "-" + index + "=" + calcular(n, "-", index) + "\n");
+            mult.push(n + "*" + index + "=" + calcular(n, "*", index) + "\n");
+            div.push(n + "/" + index + "=" + calcular(n, "/", index) + "\n");
+        }
 
-    </body>
+        console.log(som.toString().replace(/,/g, ""));
+        console.log(sub.toString().replace(/,/g, ""));
+        console.log(mult.toString().replace(/,/g, ""));
+        console.log(div.toString().replace(/,/g, ""));
+
+    </script>
+
+</body>
 
 </html>
