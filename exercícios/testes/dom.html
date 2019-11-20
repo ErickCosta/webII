@@ -1,0 +1,56 @@
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+
+        <h1 class='classe' id='primeiro'>Olá</h1>
+        <h1 class='classe' id='segundo'>Mundo</h1>
+
+        <script>
+        
+            //Selecionar o primeiro elemento com a referência
+            var unic = document.querySelector('h1');
+            console.log(unic);
+            
+            //Selecionar todos os elementos com a referência
+            var all = document.querySelectorAll('h1');
+            console.log(all);
+            console.log(all[0], all[1]);
+
+            //Selecionar por ID
+            var primeiro = document.getElementById('primeiro');
+            console.log(primeiro);
+            var segundo = document.getElementById('segundo');
+            console.log(segundo);
+
+            //Selecionar por classe
+            var classes = document.getElementsByClassName('classe')
+            console.log(classes);
+            console.log(classes[0]);
+            console.log(classes[1]);
+
+            //Selecionar por tag
+            var tags = document.getElementsByTagName('h1');
+            console.log(tags);
+            console.log(tags[0], tags[1]);
+
+            //Criar um elemento
+            var h1 = document.createElement('h1');
+
+            var t1 = document.createTextNode('Olá Mundo');
+
+            h1.appendChild(t1);
+
+            document.body.appendChild(h1)
+
+            //Modificar um elemento
+            h1.textContent = 'Mudou!!!'
+            h1.style.color = 'red';
+
+        </script>
+    </body>
+
+</html>
