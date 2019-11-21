@@ -1,15 +1,22 @@
 <html>
     <head>
-        <title>Dom</title>
+        <title>Exemplo da árvore</title>
     </head>
 
     <body>
+        <h1>Meu primeiro texto</h1>
+        <h1>Meu segundo texto</h1>
+
         <script>
 
-            var title = document.querySelector('title');
+            var primeiroH1 = document.querySelector('h1');
 
-            title.innerText = "João Pessoa";
+            console.log(primeiroH1);
 
+            var todosH1 = document.querySelectorAll('h1');
+
+            console.log(todosH1);
+        
         </script>
     </body>
 </html>
