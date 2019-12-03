@@ -1,0 +1,34 @@
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+
+        <h1 class='classe' id='primeiro'>Olá</h1>
+        
+        <button onclick="mudarCor()">Mudar Cor</button>
+
+        <script>
+
+            var mudou = false;
+            
+            function mudarCor(){
+                var h1 = document.getElementById('primeiro');
+                console.log(h1);
+                if(mudou == false){
+                    h1.setAttribute("style", "background-color: green;");
+                    mudou = true;
+                }else{
+                    h1.setAttribute("style", "background-color: white;");
+                    mudou = false;
+                }
+               
+            }
+           
+
+        </script>
+    </body>
+
+</html>

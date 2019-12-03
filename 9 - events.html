@@ -1,0 +1,35 @@
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        
+        <h1>HO HO HO!</h1>
+
+        <button onclick="mudarCor()">Colorir</button>
+
+        <script>
+
+            var cristal = document.getElementsByTagName("h1");
+            var cores = ["green", "blue", "red", "yellow", "pink"];
+
+            function mudarCorDeNovo(){
+                console.log("Mudar cor de novo!");
+                var indexCor = Math.floor(Math.random() * (5));                
+                cristal[0].style.backgroundColor = cores[indexCor];
+            }    
+
+            function mudarCor(){
+                console.log("Mudou a cor!");
+                console.log(cristal);
+                cristal[0].setAttribute("style", "background-color: green");
+                setInterval(mudarCorDeNovo, 1000);
+                
+            }
+
+        </script>
+    </body>
+
+</html>
