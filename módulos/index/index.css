@@ -6,3 +6,8 @@ h1 {
     margin: 0;
     background-color: blueviolet;
 }
+
+#form {
+    margin-top: 5px;
+    margin-left: 5px;
+}
