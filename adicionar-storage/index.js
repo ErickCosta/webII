@@ -2,13 +2,15 @@ var values = []
 var ul = document.getElementById("ul");
 
 function renderValues(){
-    ul.innerHTML = "";
-    values = JSON.parse(localStorage.getItem('values'));
+
+    loadValues();
+
     for(value in values) {
+       
         var li = document.createElement("li");
         var button = document.createElement('button');
         var butttonText = document.createTextNode('Excluir');
-        
+
         button.appendChild(butttonText);
         button.setAttribute('onclick', `remove(${values.indexOf(values[value])})`);
 
@@ -28,20 +30,12 @@ function getInf(){
         
         values.push(`Nome: ${iNome.value} - Valor: ${iValor.value}`);
 
-        var button = document.createElement('button');
-        var butttonText = document.createTextNode('Excluir');
-        button.appendChild(butttonText);
-        button.setAttribute('onclick', `remove(${values.indexOf(`Nome: ${iNome.value} - Valor: ${iValor.value}`)})`);
-        
-        var li = document.createElement("li");
-        li.innerHTML = `Nome: ${iNome.value} - Valor: ${iValor.value}`;
-        li.appendChild(button);
-        ul.appendChild(li);
-
-        localStorage.setItem("values", JSON.stringify(values));
-
         iNome.value = "";
         iValor.value = "";
+
+        storage();
+        renderValues();
+
     }else{
 
         if(!iNome.value && !iValor.value){
@@ -55,10 +49,18 @@ function getInf(){
 }
 
 function remove(pos){
-    console.log(pos);
     values.splice(pos, 1);
-    localStorage.setItem("values", JSON.stringify(values));
+    storage()
     renderValues();
+}
+
+function storage(){
+    localStorage.setItem("values", JSON.stringify(values));
+}
+
+function loadValues(){
+    ul.innerHTML = "";
+    values = JSON.parse(localStorage.getItem('values'));
 }
 
 renderValues();
