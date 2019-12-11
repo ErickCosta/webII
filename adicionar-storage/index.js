@@ -1,3 +1,21 @@
+var values = JSON.parse(localStorage.getItem('values'));
+
+if (!values){
+    values = [];
+}
+
+function renderValues(){
+    console.log("Entrou");
+    console.log(values);
+    for(value in values) {
+        console.log(value);
+        var ul = document.getElementById("ul");
+        var li = document.createElement("li");
+            li.innerHTML = values[value];
+            ul.appendChild(li);
+    }
+}
+
 function getInf(){
     console.log("Pegando dados!");
 
@@ -9,6 +27,8 @@ function getInf(){
         var li = document.createElement("li");
         li.innerHTML = `Nome: ${iNome.value} - Valor: ${iValor.value}`;
         ul.appendChild(li);
+        values.push(li.innerHTML);
+        localStorage.setItem("values", JSON.stringify(values));
         iNome.value = "";
         iValor.value = "";
     }else{
@@ -22,3 +42,5 @@ function getInf(){
         }
     }
 }
+
+renderValues();
