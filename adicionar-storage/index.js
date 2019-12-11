@@ -1,34 +1,45 @@
-var values = JSON.parse(localStorage.getItem('values'));
-
-if (!values){
-    values = [];
-}
+var values = []
+var ul = document.getElementById("ul");
 
 function renderValues(){
-    console.log("Entrou");
-    console.log(values);
+    ul.innerHTML = "";
+    values = JSON.parse(localStorage.getItem('values'));
     for(value in values) {
-        console.log(value);
-        var ul = document.getElementById("ul");
         var li = document.createElement("li");
-            li.innerHTML = values[value];
-            ul.appendChild(li);
+        var button = document.createElement('button');
+        var butttonText = document.createTextNode('Excluir');
+        
+        button.appendChild(butttonText);
+        button.setAttribute('onclick', `remove(${values.indexOf(values[value])})`);
+
+        li.innerHTML = values[value];
+        li.appendChild(button);
+
+        ul.appendChild(li);
     }
 }
 
 function getInf(){
-    console.log("Pegando dados!");
 
     var iNome = document.getElementById("nome");
     var iValor = document.getElementById("valor");
-    var ul = document.getElementById("ul");
 
     if(iNome.value && iValor.value){
+        
+        values.push(`Nome: ${iNome.value} - Valor: ${iValor.value}`);
+
+        var button = document.createElement('button');
+        var butttonText = document.createTextNode('Excluir');
+        button.appendChild(butttonText);
+        button.setAttribute('onclick', `remove(${values.indexOf(`Nome: ${iNome.value} - Valor: ${iValor.value}`)})`);
+        
         var li = document.createElement("li");
         li.innerHTML = `Nome: ${iNome.value} - Valor: ${iValor.value}`;
+        li.appendChild(button);
         ul.appendChild(li);
-        values.push(li.innerHTML);
+
         localStorage.setItem("values", JSON.stringify(values));
+
         iNome.value = "";
         iValor.value = "";
     }else{
@@ -41,6 +52,13 @@ function getInf(){
             alert("Falta valor!");
         }
     }
+}
+
+function remove(pos){
+    console.log(pos);
+    values.splice(pos, 1);
+    localStorage.setItem("values", JSON.stringify(values));
+    renderValues();
 }
 
 renderValues();
